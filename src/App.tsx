@@ -1,7 +1,7 @@
 import coingeckoApi from './api/coingecko.api';
 import { useEffect, useState } from 'react';
 import { Coin, Currency, TimeInterval } from './models/models';
-import CoinChart from './components/CoinChart';
+import CoinInfoPanel from './components/CoinInfoPanel';
 
 const currencyList: Currency[] = ['USD', 'EUR', 'GBP'];
 
@@ -20,7 +20,7 @@ const App = () => {
     coingeckoApi.getCoinsList().then(setCoins);
   }, [setCoins]);
 
-  return <CoinChart availableCoins={coins} availableCurrencies={currencyList} availableIntervals={intervals} />;
+  return <CoinInfoPanel availableCoins={coins} availableCurrencies={currencyList} availableIntervals={intervals} />;
 };
 
 export default App;

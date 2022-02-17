@@ -6,7 +6,9 @@ export interface Coin {
 
 export type Currency = 'USD' | 'EUR' | 'GBP';
 
+export type Days = 1 | 7 | 30 | 365 | 'max';
+
 export interface TimeInterval {
-  days: number | 'max';
+  days: Days;
   label: string;
 }
