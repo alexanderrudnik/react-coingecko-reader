@@ -18,7 +18,13 @@ const LineChart: React.FC<LineChartProps> = ({ data, title, subtitle, dateFormat
         type: 'continuous',
         seriesIndex: 0,
         min: 0,
-        max: 400,
+        max: 5000,
+        inRange: {
+          color: ['#0ea5e9', '#0c4a6e'],
+        },
+        outRange: {
+          color: ['#bae6fd', '#0ea5e9'],
+        },
       },
     ],
 
@@ -28,9 +34,11 @@ const LineChart: React.FC<LineChartProps> = ({ data, title, subtitle, dateFormat
         subtext: subtitle,
         textStyle: {
           fontSize: '24px',
+          color: '#0ea5e9',
         },
         subtextStyle: {
           fontSize: '18px',
+          color: '#7dd3fc',
         },
       },
     ],
