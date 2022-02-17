@@ -5,6 +5,7 @@ import Select from './common/Select';
 import IntervalSelect from './IntervalSelect';
 import coingeckoApi from '../api/coingecko.api';
 import CoinChart from './common/CoinChart';
+import Spinner from './common/Spinner';
 
 interface CoinChartProps {
   availableCoins: Coin[];

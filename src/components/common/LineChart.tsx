@@ -1,6 +1,7 @@
 import React from 'react';
 import EChartsReact from 'echarts-for-react';
 import dayjs from 'dayjs';
+import Spinner from './Spinner';
 
 interface LineChartProps {
   data: [number, number][];
@@ -67,7 +68,13 @@ const LineChart: React.FC<LineChartProps> = ({ data, title, subtitle, dateFormat
     ],
   };
 
-  return <EChartsReact option={option} style={{ height: '600px' }} />;
+  const loading = data.length === 0;
+
+  return (
+    <div className="h-[38rem]">
+      {loading ? <Spinner /> : <EChartsReact option={option} style={{ height: '100%' }} />}
+    </div>
+  );
 };
 
 export default LineChart;
