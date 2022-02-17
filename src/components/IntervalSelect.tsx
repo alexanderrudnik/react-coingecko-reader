@@ -18,7 +18,7 @@ const IntervalSelect: React.FC<IntervalSelectProps> = ({ intervals, onChange }) 
 
   const options = intervals.map(({ days, label }) => ({ value: days + '', label }));
 
-  return <Select options={options} onChange={handleChange} />;
+  return <Select options={options} onChange={handleChange} label="Interval" />;
 };
 
 export default IntervalSelect;

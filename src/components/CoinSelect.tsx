@@ -22,7 +22,7 @@ const CoinSelect: React.FC<CoinSelectProps> = ({ coins, onChange }) => {
     onChange(coin);
   };
 
-  return <Select options={options} onChange={handleChange} />;
+  return <Select options={options} onChange={handleChange} label="Coin" />;
 };
 
 export default CoinSelect;

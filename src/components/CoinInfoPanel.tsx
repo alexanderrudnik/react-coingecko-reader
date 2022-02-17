@@ -41,20 +41,17 @@ const CoinInfoPanel: React.FC<CoinChartProps> = ({ availableCoins, availableCurr
 
   return (
     <div className="container mx-auto my-auto">
-      <div className="block p-6 rounded-lg shadow-lg bg-gray-50">
+      <div className="block p-6 rounded-lg shadow-lg bg-sky-50">
         <div className="text-gray-700 text-base mb-4">
-          <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-            Coins
+          <div className="flex justify-center items-center flex-col">
             <CoinSelect coins={availableCoins} onChange={setCoin} />
-          </label>
-          <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-            Currency
-            <Select plainOptions={availableCurrencies} onChange={(value) => setCurrency(value as Currency)} />
-          </label>
-          <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-            Interval
+            <Select
+              plainOptions={availableCurrencies}
+              onChange={(value) => setCurrency(value as Currency)}
+              label="Currency"
+            />
             <IntervalSelect intervals={availableIntervals} onChange={setInterval} />
-          </label>
+          </div>
 
           <CoinChart price={coinPrice} coin={coin} currency={currency} dateFormat={formatMapper[interval.days]} />
         </div>

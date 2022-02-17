@@ -10,14 +10,16 @@ interface SelectProps {
   plainOptions?: string[];
   onChange: (value: string) => void;
   defaultSelected?: string | number;
+  label: string;
 }
 
-const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange }) => {
+const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange, label }) => {
   const optionsToRender = plainOptions ? plainOptions.map((opt) => ({ value: opt, label: opt })) : options || [];
 
   return (
-    <div className="flex justify-center">
-      <div className="mb-3 xl:w-96">
+    <div className="mb-3 w-72 sm:w-96">
+      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+        {label}
         <select
           onChange={(event) => onChange(event.target.value)}
           className="form-select appearance-none
@@ -34,7 +36,7 @@ const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange }) => {
             transition
             ease-in-out
             m-0
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-none"
           aria-label="Select"
         >
           {optionsToRender.map(({ value, label }) => (
@@ -43,7 +45,7 @@ const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange }) => {
             </option>
           ))}
         </select>
-      </div>
+      </label>
     </div>
   );
 };
