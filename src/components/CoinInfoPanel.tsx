@@ -23,7 +23,7 @@ const formatMapper: { [key in Days]: string } = {
 const CoinInfoPanel: React.FC<CoinChartProps> = ({ availableCoins, availableCurrencies, availableIntervals }) => {
   const [coin, setCoin] = useState<Coin>(availableCoins[0]);
   const [currency, setCurrency] = useState<Currency>(availableCurrencies[0]);
-  const [interval, setInterval] = useState<TimeInterval>(availableIntervals[0]);
+  const [interval, setInterval] = useState<TimeInterval>(availableIntervals[3]);
 
   const [coinPrice, setCoinPrice] = useState<[number, number][]>([]);
 
@@ -50,7 +50,11 @@ const CoinInfoPanel: React.FC<CoinChartProps> = ({ availableCoins, availableCurr
               onChange={(value) => setCurrency(value as Currency)}
               label="Currency"
             />
-            <IntervalSelect intervals={availableIntervals} onChange={setInterval} />
+            <IntervalSelect
+              intervals={availableIntervals}
+              onChange={setInterval}
+              defaultSelected={interval.days + ''}
+            />
           </div>
 
           <CoinChart price={coinPrice} coin={coin} currency={currency} dateFormat={formatMapper[interval.days]} />

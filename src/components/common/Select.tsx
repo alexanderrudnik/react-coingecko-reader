@@ -9,11 +9,11 @@ interface SelectProps {
   options?: Option[];
   plainOptions?: string[];
   onChange: (value: string) => void;
-  defaultSelected?: string | number;
+  defaultSelected?: string;
   label: string;
 }
 
-const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange, label }) => {
+const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange, label, defaultSelected }) => {
   const optionsToRender = plainOptions ? plainOptions.map((opt) => ({ value: opt, label: opt })) : options || [];
 
   return (
@@ -22,6 +22,7 @@ const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange, label 
         {label}
         <select
           onChange={(event) => onChange(event.target.value)}
+          value={defaultSelected}
           className="form-select appearance-none
             block
             w-full
