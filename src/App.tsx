@@ -20,14 +20,7 @@ const App = () => {
     coingeckoApi.getCoinsList().then(setCoins);
   }, [setCoins]);
 
-  return (
-    <>
-      <h1 className="font-medium text-5xl sm:text-7xl text-sky-500 text-center leading-tight mt-16 w-screen">
-        Coingecko Reader
-      </h1>
-      <CoinInfoPanel availableCoins={coins} availableCurrencies={currencyList} availableIntervals={intervals} />;
-    </>
-  );
+  return <CoinInfoPanel availableCoins={coins} availableCurrencies={currencyList} availableIntervals={intervals} />;
 };
 
 export default App;
