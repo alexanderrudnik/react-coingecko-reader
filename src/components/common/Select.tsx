@@ -6,12 +6,15 @@ interface Option {
 }
 
 interface SelectProps {
-  options: Option[];
+  options?: Option[];
+  plainOptions?: string[];
   onChange: (value: string) => void;
-  defaultSelected?: string;
+  defaultSelected?: string | number;
 }
 
-const Select: React.FC<SelectProps> = ({ options, onChange }) => {
+const Select: React.FC<SelectProps> = ({ options, plainOptions, onChange }) => {
+  const optionsToRender = plainOptions ? plainOptions.map((opt) => ({ value: opt, label: opt })) : options || [];
+
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
@@ -34,7 +37,7 @@ const Select: React.FC<SelectProps> = ({ options, onChange }) => {
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           aria-label="Select"
         >
-          {options.map(({ value, label }) => (
+          {optionsToRender.map(({ value, label }) => (
             <option key={value} value={value}>
               {label}
             </option>
