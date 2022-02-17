@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Select from './common/Select';
-import { Coin } from '../models/coin';
+import { Coin } from '../models/models';
 import coingeckoApi from '../api/coingecko.api';
 
 interface CoinSelectProps {

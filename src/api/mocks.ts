@@ -1,4 +1,4 @@
-import { Coin } from '../models/coin';
+import { Coin } from '../models/models';
 
 export const coins: Coin[] = [
   {
