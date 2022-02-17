@@ -1,22 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Select from './common/Select';
 import { Coin } from '../models/models';
-import coingeckoApi from '../api/coingecko.api';
 
 interface CoinSelectProps {
+  coins: Coin[];
   onChange: (coin: Coin) => void;
 }
 
-const CoinSelect: React.FC<CoinSelectProps> = ({ onChange }) => {
-  const [coins, setCoins] = useState<Coin[]>([]);
-
-  useEffect(() => {
-    coingeckoApi.getCoinsList().then((coins) => {
-      setCoins(coins);
-      onChange(coins[0]);
-    });
-  }, [onChange, setCoins]);
-
+const CoinSelect: React.FC<CoinSelectProps> = ({ coins, onChange }) => {
   const options = useMemo(
     () =>
       coins.map((coin) => ({
